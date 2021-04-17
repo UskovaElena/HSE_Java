@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter path or name of file");  // input.txt
+        System.out.println("Enter path or name of input file");  // input.txt
         String fileName = in.nextLine();
         File file = new File(fileName);
         boolean flag = false;
@@ -27,7 +27,7 @@ public class Main {
         LettersCounter data = new LettersCounter(File.read());
         Map<Character, Integer> map = data.count();
         Scanner out = new Scanner(System.in);
-        System.out.println("Enter path or name of file");  // output.txt
+        System.out.println("Enter path or name of output file");  // output.txt
         String fileN = in.nextLine();
         File file_out = new File(fileN);
         FileWork File_out = new FileWork(file_out);
