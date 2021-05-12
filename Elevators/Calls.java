@@ -11,7 +11,6 @@ public class Calls implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Calls thread is working now");
         for(int j = 0; j < 20; j++) {
             Random random = new Random();
             int num_passengers = random.nextInt(10);
@@ -27,6 +26,7 @@ public class Calls implements Runnable{
                 }
                 Passenger passenger = new Passenger(from, to);
                 getController().addPassenger(passenger);
+                System.out.println("Passenger from " + passenger.getFrom() + " to " + passenger.getTo());
             }
             try {
                 Thread.sleep(3000);

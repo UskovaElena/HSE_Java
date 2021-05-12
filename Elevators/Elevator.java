@@ -11,14 +11,20 @@ public class Elevator {
         setId(id);
         setCapacity(capacity);
         setCur_floor(0);
+        setDirection(0);
     }
 
     public void go() {
-        for(Passenger p : getPassengers()) {
-            if (p.getTo() == getCur_floor())
-                passengers.remove(p);
+        if(!passengers.isEmpty()) {
+            for(Passenger p : getPassengers()) {
+                if (p.getTo() == getCur_floor())
+                    passengers.remove(p);
+            }
+            setCur_floor(getCur_floor() + getDirection());
         }
-        setCur_floor(getCur_floor() + getDirection());
+        else {
+            setDirection(0);
+        }
     }
 
     public void setId(int id) {
@@ -37,7 +43,11 @@ public class Elevator {
         this.direction = direction;
     }
 
-    public void addPassengers(ArrayList<Passenger> passengers) {
+    public void addPassenger(Passenger p) {
+        this.passengers.add(p);
+    }
+
+    public void setPassengers(ArrayList<Passenger> passengers) {
         this.passengers = passengers;
     }
 
